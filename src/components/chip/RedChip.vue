@@ -1,6 +1,6 @@
 <template>
     <div class="chip">
-        <p class="chip__text">작업중</p>
+        <p class="chip__text">작업종료</p>
     </div>
 </template>
 

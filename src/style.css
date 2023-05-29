@@ -36,16 +36,8 @@ a:hover {
 
 body {
     margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+    display: block;
     background-color: #14181d;
-}
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
 }
 
 button {
@@ -76,9 +68,8 @@ ul {
 }
 
 #app {
-    max-width: 1280px;
+    min-width: 1280px;
     margin: 0 auto;
-    padding: 2rem;
     text-align: center;
 }
 

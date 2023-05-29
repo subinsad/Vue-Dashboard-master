@@ -2,6 +2,7 @@
     <div class="Layout">
         <div class="Layout__title">
             {{ title }}
+            <Details />
         </div>
 
         <slot> </slot>
@@ -9,7 +10,9 @@
 </template>
 
 <script>
+import Details from "../components/Button/Details.vue";
 export default {
+    components: { Details },
     props: {
         title: {
             type: String,
@@ -24,17 +27,19 @@ export default {
     display: flex;
     flex-direction: column;
 
-    width: 386px;
-    height: 578px;
-    padding: 16px 32px;
+    width: 410px;
+    height: 580px;
+    padding: 20px;
 
     background-color: #fff;
     border-radius: 10px;
 
     &__title {
         display: flex;
-        margin: 16px 8px;
-        margin-right: 0;
+        justify-content: space-between;
+
+        margin-bottom: 16px;
+
         font-weight: $font-weight-700;
         font-size: 17px;
     }

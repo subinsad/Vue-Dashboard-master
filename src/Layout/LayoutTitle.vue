@@ -1,7 +1,7 @@
 <template>
-  <div class="Layout">
-    <slot> </slot>
-  </div>
+    <div class="Layout">
+        <slot> </slot>
+    </div>
 </template>
 
 <script>
@@ -10,14 +10,14 @@ export default {};
 
 <style lang="scss" scoped>
 .Layout {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  width: 386px;
-  height: 238px;
-  padding: 16px 32px;
+    width: 410px;
+    height: 230px;
+    padding: 20px;
 
-  background-color: #fff;
-  border-radius: 10px;
+    background-color: #fff;
+    border-radius: 10px;
 }
 </style>

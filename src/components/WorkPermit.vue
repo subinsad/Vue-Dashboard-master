@@ -1,7 +1,7 @@
 <template>
     <LayoutLong title="작업허가서">
         <!-- <Header /> -->
-        <ProcessBar />
+        <ProcessBar class="ProcessBar" />
 
         <ul class="list">
             <li class="list__labelText">
@@ -66,19 +66,13 @@ export default {
                 {
                     label: "지에스아이엘",
                     count: "13:02:10",
+                    end: "15:02:10",
+                    chip: true,
+                },
+                {
+                    label: "서부",
+                    count: "13:02:10",
                     end: "",
-                    chip: true,
-                },
-                {
-                    label: "지에스아이엘",
-                    count: "13:02:10",
-                    end: "15:02:10",
-                    chip: false,
-                },
-                {
-                    label: "지에스아이엘",
-                    count: "13:02:10",
-                    end: "15:02:10",
                     chip: false,
                 },
                 {
@@ -90,14 +84,20 @@ export default {
                 {
                     label: "지에스아이엘",
                     count: "13:02:10",
-                    end: "15:02:10",
-                    chip: true,
+                    end: "",
+                    chip: false,
                 },
                 {
                     label: "지에스아이엘",
                     count: "13:02:10",
-                    end: "15:02:10",
-                    chip: true,
+                    end: "",
+                    chip: false,
+                },
+                {
+                    label: "지에스아이엘",
+                    count: "13:02:10",
+                    end: "",
+                    chip: false,
                 },
             ],
         };
@@ -108,6 +108,10 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Color.scss";
 @import "../scss/Font.scss";
+
+.ProcessBar {
+    margin-bottom: 14px;
+}
 .list {
     display: flex;
     flex-direction: column;

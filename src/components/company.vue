@@ -1,25 +1,24 @@
 <template>
-  <Layout>
-    <div>
-      <p>업체별 출역현황</p>
-      <!-- <Details /> -->
-    </div>
-
-    <BarChart />
-  </Layout>
+    <LayoutLong title="업체별 출역현황" class="layout">
+        <BarChart />
+    </LayoutLong>
 </template>
 
 <script>
-import Layout from "../Layout/LayoutTitle.vue";
+import LayoutLong from "../Layout/LayoutLong.vue";
 import Details from "../components/Button/Details.vue";
 import BarChart from "../components/BarChart.vue";
 export default {
-  components: { Layout, Details, BarChart },
+    components: { Details, BarChart, LayoutLong },
 
-  data() {
-    return {};
-  },
+    data() {
+        return {};
+    },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.layout {
+    height: 230px;
+}
+</style>
