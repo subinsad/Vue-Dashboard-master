@@ -8,7 +8,11 @@
 
     <div>
       <ul>
-        <li></li>
+        <li v-for="(item, index) in chartList">
+          <span></span>
+          <span>{{ name }}</span>
+          <span>{{ number }}명</span>
+        </li>
       </ul>
     </div>
   </LayoutLong>
@@ -22,7 +26,24 @@ export default {
   components: { Details, BarChart, LayoutLong },
 
   data() {
-    return {};
+    return {
+      chartList: [],
+    };
+  },
+
+  methods: {
+    getData() {
+      const newArr = {
+        name: "지에스아이엘",
+        number: "20",
+      };
+
+      this.chartList = newArr;
+    },
+  },
+
+  mounted() {
+    this.getData();
   },
 };
 </script>
