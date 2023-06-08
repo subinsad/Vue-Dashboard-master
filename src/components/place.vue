@@ -1,5 +1,5 @@
 <template>
-  <LayoutLong title="업체별 출역현황" class="layout">
+  <LayoutLong title="현장별 출역현황" class="layout">
     <div class="layout__wrap">
       <BarChart class="layout__chart" />
 
@@ -38,11 +38,11 @@ export default {
 
   data() {
     return {
-      name: "지에스아이엘",
+      name: "A구역",
       number: "10",
-      west: "서부발전",
+      west: "B구역",
       numberWest: "20",
-      other: "그 외",
+      other: "C구역",
       numberOther: "15",
     };
   },

@@ -1,48 +1,25 @@
 <template>
-  <LayoutLong title="업체별 출역현황" class="layout">
-    <div class="layout__wrap">
-      <BarChart class="layout__chart" />
-
-      <div class="layout__wrap__total">
-        <span> 45명</span>
-      </div>
-      <ul class="list">
-        <li class="list__text-box">
-          <span class="list__text-box__box-blue"></span>
-          <span class="list__text-box__text">{{ name }}</span>
-          <span>{{ number }}명</span>
-        </li>
-
-        <li class="list__text-box">
-          <span class="list__text-box__box-blue02"></span>
-          <span class="list__text-box__text">{{ west }}</span>
-          <span>{{ numberWest }}명</span>
-        </li>
-
-        <li class="list__text-box">
-          <span class="list__text-box__box-gray"></span>
-          <span class="list__text-box__text">{{ other }}</span>
-          <span>{{ numberOther }}명</span>
-        </li>
-      </ul>
-    </div>
+  <LayoutLong title="중장비 점검" class="layout">
+    <ProcessBar class="ProcessBar" />
+    <div class="layout__wrap"></div>
   </LayoutLong>
 </template>
 
 <script>
 import LayoutLong from "../Layout/LayoutLong.vue";
 import Details from "../components/Button/Details.vue";
-import BarChart from "../components/BarChart.vue";
+import ProcessBar from "../components/chip/ProcessBar.vue";
+
 export default {
-  components: { Details, BarChart, LayoutLong },
+  components: { Details, LayoutLong, ProcessBar },
 
   data() {
     return {
-      name: "지에스아이엘",
+      name: "A구역",
       number: "10",
-      west: "서부발전",
+      west: "B구역",
       numberWest: "20",
-      other: "그 외",
+      other: "C구역",
       numberOther: "15",
     };
   },
@@ -52,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Font.scss";
 .layout {
-  height: 230px;
+  height: 256px;
   position: relative;
 
   &__chart {
@@ -69,10 +46,12 @@ export default {
     display: flex;
     justify-content: space-between;
 
+    margin-top: 20px;
+
     &__total {
       position: absolute;
 
-      top: 135px;
+      top: 188px;
       left: 86px;
 
       font-size: 30px;

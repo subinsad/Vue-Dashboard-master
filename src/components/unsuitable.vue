@@ -1,5 +1,6 @@
 <template>
-  <LayoutLong title="업체별 출역현황" class="layout">
+  <LayoutLong title="부적합" class="layout">
+    <ProcessBar class="ProcessBar" />
     <div class="layout__wrap">
       <BarChart class="layout__chart" />
 
@@ -33,16 +34,18 @@
 import LayoutLong from "../Layout/LayoutLong.vue";
 import Details from "../components/Button/Details.vue";
 import BarChart from "../components/BarChart.vue";
+import ProcessBar from "../components/chip/ProcessBar.vue";
+
 export default {
-  components: { Details, BarChart, LayoutLong },
+  components: { Details, BarChart, LayoutLong, ProcessBar },
 
   data() {
     return {
-      name: "지에스아이엘",
+      name: "A구역",
       number: "10",
-      west: "서부발전",
+      west: "B구역",
       numberWest: "20",
-      other: "그 외",
+      other: "C구역",
       numberOther: "15",
     };
   },
@@ -52,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Font.scss";
 .layout {
-  height: 230px;
+  height: 256px;
   position: relative;
 
   &__chart {
@@ -69,10 +72,12 @@ export default {
     display: flex;
     justify-content: space-between;
 
+    margin-top: 20px;
+
     &__total {
       position: absolute;
 
-      top: 135px;
+      top: 188px;
       left: 86px;
 
       font-size: 30px;
