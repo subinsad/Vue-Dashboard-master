@@ -89,6 +89,11 @@ export default {
 @import "../scss/Color.scss";
 @import "../scss/Font.scss";
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 [theme="textblue"] {
   background-color: $Color-blue-001;
   color: $Color-blue-100;
@@ -160,6 +165,8 @@ export default {
 
     &__list {
       .text {
+        line-height: 34px;
+        font-size: 17px;
         &__wind span:nth-child(2) {
           margin: 0 16px 0 52px;
 

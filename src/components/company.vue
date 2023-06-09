@@ -58,9 +58,6 @@ export default {
   &__chart {
     display: flex;
 
-    width: 140px;
-    height: 140px;
-
     margin-top: 24px;
     margin-left: 24px;
   }

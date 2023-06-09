@@ -1,7 +1,21 @@
 <template>
   <LayoutLong title="중장비 점검" class="layout">
     <ProcessBar class="ProcessBar" />
-    <div class="layout__wrap"></div>
+    <div class="layout__wrap">
+      <div class="layout__wrap__block">
+        <div class="bar" v-for="item in barData">
+          <div class="bar__block">
+            <div class="back">
+              <div
+                class="front"
+                :style="{ height: `${setHeight(item)}%` }"
+              ></div>
+            </div>
+          </div>
+          <span>{{ item.name }}</span>
+        </div>
+      </div>
+    </div>
   </LayoutLong>
 </template>
 
@@ -15,96 +29,98 @@ export default {
 
   data() {
     return {
-      name: "A구역",
-      number: "10",
-      west: "B구역",
-      numberWest: "20",
-      other: "C구역",
-      numberOther: "15",
+      barData: [
+        {
+          total: 100,
+          doing: 20,
+          name: "굴삭기",
+        },
+        {
+          total: 100,
+          doing: 30,
+          name: "중장비",
+        },
+        {
+          total: 100,
+          doing: 40,
+          name: "파일항타",
+        },
+        {
+          total: 100,
+          doing: 50,
+          name: "양중기",
+        },
+        {
+          total: 100,
+          doing: 60,
+          name: "산업보건",
+        },
+      ],
     };
+  },
+  methods: {
+    setHeight(item) {
+      const res = String((item.doing / item.total) * 100);
+      return res;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/Font.scss";
+@import "../scss/main.scss";
+
 .layout {
   height: 256px;
-  position: relative;
-
-  &__chart {
-    display: flex;
-
-    width: 140px;
-    height: 140px;
-
-    margin-top: 24px;
-    margin-left: 24px;
-  }
 
   &__wrap {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
 
     margin-top: 20px;
 
-    &__total {
-      position: absolute;
-
-      top: 188px;
-      left: 86px;
-
-      font-size: 30px;
-      font-weight: $font-weight-500;
-    }
-
-    .list {
+    &__block {
       display: flex;
-      flex-direction: column;
       justify-content: space-around;
-      text-align: left;
 
-      padding: 0;
-      margin-right: 20px;
+      position: relative;
 
-      width: 40%;
+      @mixin block {
+        display: inline-block;
 
-      font-weight: 600;
+        width: 15px;
 
-      &__text-box {
+        border-radius: 10px;
+      }
+      .bar {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
 
-        @mixin box {
-          display: block;
-          content: "";
+        gap: 12px;
 
-          width: 15px;
-          height: 15px;
-          margin-right: 8px;
+        &__block {
+          height: 125px;
 
-          border-radius: 4px;
-        }
+          .back {
+            @include block;
+            position: relative;
 
-        &__box-blue {
-          @include box;
-          background-color: #1a4568;
-        }
+            height: 100%;
 
-        &__box-blue02 {
-          @include box;
-          background-color: #90afc4;
-        }
+            background-color: $Color-gray-005;
+          }
 
-        &__box-gray {
-          @include box;
-          background-color: #d9d9d9;
-        }
+          .front {
+            @include block;
+            display: flex;
 
-        &__text {
-          margin-right: 8px;
+            position: absolute;
+            bottom: 0px;
+
+            height: 70px;
+            background-color: $Color-blue-050;
+          }
         }
       }
     }

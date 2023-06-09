@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <canvas ref="barChart" style="width: 140px; height: 140px" />
-  </div>
+  <canvas ref="barChart" style="width: 140px; height: 140px" />
 </template>
 
 <script>
