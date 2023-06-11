@@ -1,7 +1,13 @@
 <template>
     <LayoutLong title="작업허가서">
         <!-- <Header /> -->
-        <ProcessBar class="ProcessBar" />
+        <ProcessBar
+            class="ProcessBar"
+            label="작업중"
+            count="10"
+            name="작업완료"
+            number="15"
+        />
 
         <ul class="list">
             <li class="list__labelText">

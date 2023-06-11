@@ -1,38 +1,54 @@
 <template>
-  <div class="ProcessBar">
-    <div v-for="(item, index) in work" :data="item" class="ProcessBar__work">
-      <span class="ProcessBar__work__name">
-        {{ item.label }}
-      </span>
+    <div class="ProcessBar">
+        <div class="ProcessBar__work">
+            <span class="ProcessBar__work__name">
+                {{ label }}
+            </span>
+            <span class="ProcessBar__work__number">
+                {{ count }}
+                <span class="ProcessBar__work__text"> 건</span>
+            </span>
+        </div>
 
-      <span class="ProcessBar__work__number">
-        {{ item.count }}
-      </span>
+        <div class="ProcessBar__work">
+            <span class="ProcessBar__work__name">
+                {{ name }}
+            </span>
 
-      <span class="ProcessBar__work__text"> 건</span>
+            <span class="ProcessBar__work__number">
+                {{ number }}
+
+                <span class="ProcessBar__work__text"> 건</span>
+            </span>
+        </div>
+
+        <span class="ProcessBar__work__bar" />
     </div>
-
-    <span class="ProcessBar__work__bar" />
-  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      work: [
-        {
-          label: "작업중",
-          count: "10",
+    props: {
+        label: {
+            type: String,
         },
 
-        {
-          label: "작업종료",
-          count: "10",
+        count: {
+            type: String,
         },
-      ],
-    };
-  },
+
+        name: {
+            type: String,
+        },
+
+        number: {
+            type: String,
+        },
+    },
+
+    data() {
+        return {};
+    },
 };
 </script>
 
@@ -40,36 +56,36 @@ export default {
 @import "../../scss/Color.scss";
 @import "../../scss/Font.scss";
 .ProcessBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
 
-  height: 40px;
+    height: 40px;
 
-  border: 1px solid $Color-gray-004;
-  border-radius: 6px;
-  font-weight: $font-weight-500;
+    border: 1px solid $Color-gray-004;
+    border-radius: 6px;
+    font-weight: $font-weight-500;
 
-  &__work {
-    &__name {
-      margin-right: 70px;
+    &__work {
+        &__name {
+            margin-right: 70px;
+        }
+
+        &__bar {
+            display: inline;
+            position: absolute;
+            content: "";
+
+            height: 16px;
+            width: 2px;
+            left: 184px;
+            background-color: $Color-gray-004;
+        }
+
+        &__number {
+            color: $Color-blue-050;
+        }
     }
-
-    &__bar {
-      display: inline;
-      position: absolute;
-      content: "";
-
-      height: 16px;
-      width: 2px;
-      left: 184px;
-      background-color: $Color-gray-004;
-    }
-
-    &__number {
-      color: $Color-blue-050;
-    }
-  }
 }
 </style>
