@@ -48,6 +48,7 @@ import Layout from "../Layout/LayoutTitle.vue";
 import TextBtn from "../components/chip/Chip.vue";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
+import axios from "axios";
 dayjs.locale("ko");
 
 export default {
@@ -82,6 +83,28 @@ export default {
       ],
     };
   },
+
+  created() {
+    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+    const API_KEY = "a8b3133f0089755edfc62aa91f1af81e";
+    let initaialLap = 36.5683;
+    let initialLon = 126.9778;
+
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`
+      )
+
+      .then((response) => {
+        console.log(response);
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  methods: {},
 };
 </script>
 
