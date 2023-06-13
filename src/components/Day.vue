@@ -33,8 +33,8 @@
           <ul class="text">
             <li class="text__wind" v-for="item in temporaryData" :data="item">
               <span>{{ item.title }} </span>
-              <span> {{ item.vlaue }}</span>
-              <span> {{ item.text }}</span>
+              <span>{{ Math.round(item.value) }}</span>
+              <span v-html="item.text"></span>
             </li>
           </ul>
         </div>
@@ -59,25 +59,20 @@ export default {
       //현재시간 dayjs
       currentTime: dayjs().format("YYYY년 MM월 DD일 (ddd)"),
 
-      currentTemp: "",
-
-      temps: [],
-      icons: [],
-
       temporaryData: [
         {
           title: "온도",
-          vlaue: "17",
-          text: "C",
+          value: "",
+          text: "&#8451;",
         },
         {
           title: "습도",
-          vlaue: "17",
+          value: "",
           text: "%",
         },
         {
           title: "풍속",
-          vlaue: "10",
+          value: "",
           text: "m/s",
         },
       ],
@@ -85,20 +80,21 @@ export default {
   },
 
   created() {
-    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-    const API_KEY = "a8b3133f0089755edfc62aa91f1af81e";
-    let initaialLap = 36.5683;
-    let initialLon = 126.9778;
+    const API_KEY = "e7878598157a92ae89d1403b94d8653d";
+    let lat = 36.5683;
+    let lon = 126.9778;
 
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
       )
-
       .then((response) => {
         console.log(response);
-      })
 
+        this.temporaryData[0].value = response.data.current.temp;
+        this.temporaryData[1].value = response.data.current.humidity;
+        this.temporaryData[2].value = response.data.current.wind_speed;
+      })
       .catch((error) => {
         console.log(error);
       });
